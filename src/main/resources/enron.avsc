@@ -1,0 +1,103 @@
+{
+  "type" : "record",
+  "name" : "MailRecord",
+  "namespace" : "com.uebercomputing.mailrecord",
+  "fields" : [ {
+    "name" : "uuid",
+    "type" : {
+      "type" : "string",
+      "avro.java.string" : "String"
+    }
+  }, {
+    "name" : "from",
+    "type" : {
+      "type" : "string",
+      "avro.java.string" : "String"
+    }
+  }, {
+    "name" : "to",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "avro.java.string" : "String"
+      }
+    } ],
+    "default" : null
+  }, {
+    "name" : "cc",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "avro.java.string" : "String"
+      }
+    } ],
+    "default" : null
+  }, {
+    "name" : "bcc",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "avro.java.string" : "String"
+      }
+    } ],
+    "default" : null
+  }, {
+    "name" : "dateUtcEpoch",
+    "type" : "long"
+  }, {
+    "name" : "subject",
+    "type" : {
+      "type" : "string",
+      "avro.java.string" : "String"
+    }
+  }, {
+    "name" : "mailFields",
+    "type" : [ "null", {
+      "type" : "map",
+      "values" : {
+        "type" : "string",
+        "avro.java.string" : "String"
+      },
+      "avro.java.string" : "String"
+    } ],
+    "default" : null
+  }, {
+    "name" : "body",
+    "type" : {
+      "type" : "string",
+      "avro.java.string" : "String"
+    }
+  }, {
+    "name" : "attachments",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : {
+        "type" : "record",
+        "name" : "Attachment",
+        "fields" : [ {
+          "name" : "fileName",
+          "type" : {
+            "type" : "string",
+            "avro.java.string" : "String"
+          }
+        }, {
+          "name" : "size",
+          "type" : "int"
+        }, {
+          "name" : "mimeType",
+          "type" : {
+            "type" : "string",
+            "avro.java.string" : "String"
+          }
+        }, {
+          "name" : "data",
+          "type" : "bytes"
+        } ]
+      }
+    } ],
+    "default" : null
+  } ]
+}
